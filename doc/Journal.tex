@@ -219,8 +219,8 @@ direction information.
 
 A novel approach, similar in concept to the coded aperture system, exists that eliminates many of the alternative's limitations.
 This system utilizes a mask placed over a single position-insensitive detector \cite{FitzGerald2015}.  
-The system records energy spectra as a function of the geometrically varying mask, which is accomplished through a set, constant rotation of the mask. 
-The position dependent spectra obtained, referred to as detector response curves (DRCs), depend on the source position and can be used to identify the source direction.  FitzGerald's mask geometry results in some DRCs that are nearly identical, which can lead to mis-identification of the source direction.  
+The system records energy spectra as a function of the geometrically varying mask, which is accomplished through a set, constant mask rotation. 
+The obtained position dependent spectra, referred to as detector response curves (DRCs), depend on the source position and can be used to identify the source direction.  FitzGerald's mask geometry results in some DRCs that are nearly identical, which can lead to mis-identification of the source direction.  
 This work seeks to reduce the DRCs' linear dependence by optimizing the mask's geometry.
 
 The rotating scatter mask (RSM) concept offers many benefits over other gamma source position identification detectors.  
@@ -271,7 +271,7 @@ However, due to requirements for the Hadamard method, (which is discussed in Sec
 the proposed designs are broken into 32 discrete angles in $\theta$ resulting in $\Delta\theta=11.25^\circ$ and $\Delta\phi=5.625^\circ$ for 30 angles in $\phi$.
 
 The RSM design is to be optimized for a $^{137}$Cs point source located 36 inches from the center of the detector, mimicking Logan et. al's setup \cite{Logan2017}.  
-To simulate the relative source rotation in MCNP, the mask is stationary, while the source is rotated in spherical coordinates every degree for $\theta$ from 0 to $348.75^\circ$ and for each $\phi$ from 5.625$^\circ$ to $168.75^\circ$.  
+To simulate the relative source rotation in MCNP, the mask is stationary, while the source is rotated in spherical coordinates every increment for $\theta$ from 0 to $348.75^\circ$ and for each $\phi$ from 5.625$^\circ$ to $168.75^\circ$.  
 The modeled NaI detector includes a 1/8 inch 2024 Aluminum alloy sleeve on which the acrylic RSM is placed. 
 The maximum width of the RSM depends on the methodology, but the maximum mask thickness is a constant 7.87 inches (20 cm).  
 A sphere of air surrounds the source and detector, and all other environmental factors were ignored.  
@@ -299,7 +299,7 @@ However, to obtain a more constant response level, a constant average thickness 
 
 For this application, it is desirable that the curve generated at each initial source position be orthogonal - a.k.a. unique - to the others.  
 Let this curve be denoted $\mathbf{DRC}_{i,j},$ where $i=0,1,...,n$ is the initial $\theta$ and $j=0,1,...,m$ is the initial $\phi$ index relative to a reference location on the mask.  
-Since the mask rotates, the $i^{th}$ DRC will be identical to the $g^{th}$ DRC shifted by $g-i$ indices.  
+Since the mask rotates, the $i^{th}$ DRC will be identical to $\mathbf{DRC}_{g,j}$ shifted by $g-i$ indices.   
 A negative number corresponds to a shift to the left and a positive number a shift to the right.  
 This property greatly impacts the mask design as any periodic vector with respect to $\theta$ will then result in duplicate $i$ and $g$ DRCs.  
 The duplication due to periodicity would fail to meet the design's uniqueness requirements.
@@ -465,7 +465,7 @@ For the $n=32$ and $m=30$ mask design, $b=14850$.  The optimal design should hav
 
 The average, minimum, and maximum DRC values for a given $\phi$ remain the same for different initial $\theta$ values.  
 Thus, no $\theta$ shifting needs to be considered in the following two criteria.  The third criteria measures the RSM's average efficiency for a mask cell. 
-A high-efficiency design produces more accurate results in less measurement time, an important factor to consider for the intended applications of the RSM.  
+A high-efficiency design produces more accurate results in less measurement time, an important factor to consider for the intended RSM applications.  
 This value is calculated as 
 
 \begin{equation}
